@@ -20,7 +20,8 @@ EcoMonitor is a Java GUI CRUD application for managing environmental complaints 
 
 Database name: **eco_monitor**
 
-### 🔹  Table
+
+###   Table
 
 ```sql
 CREATE TABLE users (
@@ -31,6 +32,9 @@ CREATE TABLE users (
     role VARCHAR(20) NOT NULL DEFAULT 'user'
 );
 
+```
+###   Complaints Table
+```sql
 CREATE TABLE complaints (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
@@ -42,11 +46,37 @@ CREATE TABLE complaints (
     user_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+```
 
+###  News Table
+```sql
 CREATE TABLE news (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+```
+How to Run
+Import Database
+
+Use eco_monitor file to create the database in MySQL.
+
+Open Project
+
+Open the Java project in NetBeans or IntelliJ IDEA.
+
+Configure DB Connection & Maven
+
+Set your MySQL credentials (username, password) in the JDBC connection file (pom.xml) 
+
+Run the Application
+
+Launch the EcoMonitorGUI.java file to start the application.
+
+Roles
+Admin: Manages all complaints and news.
+
+User: Submits and views complaints, reads news.
 
