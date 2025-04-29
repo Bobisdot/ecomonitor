@@ -49,4 +49,4 @@ CREATE TABLE news (
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
+```sql
