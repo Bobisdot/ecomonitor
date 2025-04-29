@@ -20,7 +20,7 @@ EcoMonitor is a Java GUI CRUD application for managing environmental complaints 
 
 Database name: **eco_monitor**
 
-### 🔹 Users Table
+### 🔹  Table
 
 ```sql
 CREATE TABLE users (
@@ -30,3 +30,23 @@ CREATE TABLE users (
     email VARCHAR(100) NOT NULL UNIQUE,
     role VARCHAR(20) NOT NULL DEFAULT 'user'
 );
+
+CREATE TABLE complaints (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
+    location VARCHAR(100) NOT NULL,
+    complaint_type VARCHAR(50) NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE news (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
